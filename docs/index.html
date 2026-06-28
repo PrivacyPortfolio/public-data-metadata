@@ -1,6 +1,119 @@
-<html><head></head><body>
-index.html   ← required entry file<br/>
-styles.css<br/>
-dataset.html<br/>
-_config.yml<br/>
-</body></html>
+<html>
+  ---
+layout: default
+title: Public Evidence Archive
+---
+<body>  
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-mark">EA</span>
+      <div class="logo-text">
+        <h1>Public Evidence Archive</h1>
+        <p>Independent Documentation of Complaints, Evidence & Metadata (2019–2026)</p>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#featured">Featured Datasets</a>
+      <a href="#catalog">Dataset Catalog</a>
+      <a href="#metadata">Metadata</a>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+  <!-- Search -->
+  <section class="search-section">
+    <h2>Search the Archive</h2>
+    <div class="search-box">
+      <input type="text" placeholder="Search datasets, complaints, agencies, evidence…">
+      <button>Search</button>
+    </div>
+  </section>
+
+  <!-- Featured -->
+  <section id="featured" class="section">
+    <h2>Featured Datasets</h2>
+    <div class="card-grid">
+      {% for dataset in site.data.dataset_catalog.datasets %}
+      <article class="dataset-card">
+        <h3>{{ dataset.title }}</h3>
+
+        <p class="dataset-meta">
+          <span><strong>Version:</strong> {{ dataset.version }}</span>
+          <span><strong>Records:</strong> {{ dataset.records }}</span>
+          <span><strong>Updated:</strong> {{ dataset.updated }}</span>
+        </p>
+
+        <p class="dataset-tags">
+          <strong>Tags:</strong> {{ dataset.tags | join: ", " }}
+        </p>
+
+        <p class="dataset-desc">{{ dataset.description }}</p>
+
+        <div class="dataset-actions">
+          <a href="{{ dataset.path }}" class="btn primary">View Dataset</a>
+          <a href="/datasets/{{ dataset.id }}.html" class="btn">Metadata</a>
+          <a href="{{ dataset.drive }}" class="btn">Evidence Folder</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Catalog Table -->
+  <section id="catalog" class="section">
+    <h2>Dataset Catalog</h2>
+    <div class="table-wrapper">
+      <table class="dataset-table">
+        <thead>
+          <tr>
+            <th>Dataset</th>
+            <th>Version</th>
+            <th>Records</th>
+            <th>Updated</th>
+            <th>Tags</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for dataset in site.data.dataset_catalog.datasets %}
+          <tr>
+            <td>{{ dataset.title }}</td>
+            <td>{{ dataset.version }}</td>
+            <td>{{ dataset.records }}</td>
+            <td>{{ dataset.updated }}</td>
+            <td>{{ dataset.tags | join: ", " }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Metadata -->
+  <section id="metadata" class="section">
+    <h2>Metadata & Provenance</h2>
+    <div class="metadata-grid">
+      <div>
+        <h3>Schema Definitions</h3>
+        <ul>
+          <li>complaint_schema.json</li>
+          <li>evidence_schema.json</li>
+          <li>timeline_schema.json</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Provenance</h3>
+        <p>
+          All datasets include timestamps, version numbers, source references,
+          evidence paths, and change logs to ensure transparency and credibility.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Public Evidence Archive · Powered by GitHub Pages</p>
+</footer>
