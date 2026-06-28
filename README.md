@@ -25,13 +25,21 @@ This separation ensures long-term stability and avoids dependency on any particu
 ## Repository Structure
 
 public-data-metadata/
+
 │
+
 ├── _data/
+
 │   ├── dataset_catalog.yaml      # Master dataset index
+
 │   ├── schemas/                  # JSON schema definitions
+
 │   │   ├── complaint_schema.json
+
 │   │   ├── evidence_schema.json
+
 │   │   └── timeline_schema.json
+
 │   └── sources.yaml              # Optional: provenance for external storage
 │
 ├── datasets/
