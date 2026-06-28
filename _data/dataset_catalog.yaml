@@ -16,19 +16,21 @@ datasets:
 
   - id: complaints_2020
     title: Complaints Filed (2020)
-    description: Complaints filed with agencies in 2020.
+    description: Complaints filed with agencies during the year 2020.
     version: "1.0.1"
     records: 1332
-    updated: "2021"
-    tags: ["complaints", "filings"]
-    path: "/datasets/complaints/2020/"
-    drive: "https://drive.google.com/your-folder"
+    updated: "2021-03-12"
+    tags: ["complaints", "filings", "public-records"]
+    storage:
+      type: external
+      location: drive
+      url: "https://drive.google.com/drive/folders/YOUR_FOLDER_ID"
     resources:
       - complaints_2020.csv
       - complaints_2020.json
       - evidence/
     schema: complaint_schema.json
-
+    
   - id: evidence_archive
     title: Evidence Archive
     description: Raw evidence files including emails, letters, screenshots, PDFs.
