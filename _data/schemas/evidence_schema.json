@@ -1,1 +1,17 @@
-placeholder.json
+{
+  "title": "Evidence Archive Schema",
+  "type": "object",
+  "properties": {
+    "file_id": { "type": "string" },
+    "filename": { "type": "string" },
+    "date": { "type": "string", "format": "date" },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "description": { "type": "string" },
+    "external_url": { "type": "string" }
+  },
+  "required": ["file_id", "filename"]
+}
+
