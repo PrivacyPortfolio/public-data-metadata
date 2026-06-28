@@ -1,1 +1,17 @@
-placeholder.json
+{
+  "title": "Organization Profile Schema",
+  "type": "object",
+  "properties": {
+    "org_id": { "type": "string" },
+    "name": { "type": "string" },
+    "category": { "type": "string" },
+    "jurisdiction": { "type": "string" },
+    "contact_methods": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": "string" }
+  },
+  "required": ["org_id", "name"]
+}
+
