@@ -1,0 +1,11 @@
+collections:
+  datasets:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+data_dir: _data
